@@ -5,6 +5,7 @@ from sqlalchemy.exc import IntegrityError
 class Card_details:
     def __init__(self):
         self.session = session
+        
 # Add a missing but found card(Usage of create in CRUD)
     def add_missing_card(self, first_name, last_name, middle_name, sex, id_number, citizenship):
         try:
@@ -27,11 +28,25 @@ class Card_details:
     
 # Retrieve all missing but found cards that have been uploaded to the system
     def get_all_found_cards(self):
-        return self.session.query(Person).all()
+        try:
+            return self.session.query(Person).all()
+        
+        except Exception as e:
+            return f"Ops Error!:{e}"
     
 # Get card according to lastname
     def get_card_by_lastname(self, last_name):
-        return session.query(Person).filter_by(last_name=last_name).first() 
+        try:
+            
+            card = session.query(Person).filter_by(last_name=last_name).first() 
+            if not card:
+                raise ValueError(f"No card found with last name '{last_name}'")
+            
+            return card
+        
+        except Exception as e:
+            return f"Error Occured while retrieving last anme: {e}"
+        
     
     def get_card_by_id(self, id_number):
         return session.query(Person).filter_by(id_number=id_number).first() 

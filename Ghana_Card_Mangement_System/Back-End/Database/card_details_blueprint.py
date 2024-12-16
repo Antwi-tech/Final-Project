@@ -80,31 +80,41 @@ def record_card_details():
 #         return jsonify({"Error occurred": str(e)}), 500
 
 # Search for a card according to last name
-@person_card.route("/upload/<string:last_name>",methods=['GET'])
+@person_card.route("/upload/<string:last_name>", methods=['GET'])
 def get_laptop_by_last_name(last_name):
     try:
+        # Validate the input
+        if not isinstance(last_name, str) or not last_name.isalpha():
+            raise ValueError("Last name consists of letters only")
+        
+        # Perform the database operation
         credentails = card.get_card_by_lastname(last_name)
         
+        # Check if a card was found
         if not credentails:
-            return jsonify({"message":"Sorry, Card not found yet"}), 400
+            return jsonify({"message": "Sorry, Card not found yet"}), 400
         
+        # Return success response
         return jsonify({
-            "Card Found":{
-               "first_name": credentails.first_name,
-               "last_name": credentails.last_name,
-               "middle_name": credentails.middle_name,
-               "sex": credentails.sex,
-               "id_number": credentails.id_number,
-               "citizenship": credentails.citizenship
+            "Card Found": {
+                "first_name": credentails.first_name,
+                "last_name": credentails.last_name,
+                "middle_name": credentails.middle_name,
+                "sex": credentails.sex,
+                "id_number": credentails.id_number,
+                "citizenship": credentails.citizenship
             },
-         
-         "message":"Card found successfully!!.Visit our office for retrireval"   
+            "message": "Card found successfully!! Visit our office for retrieval."
         })
-        
+
+    # Handle validation errors
+    except ValueError as ve:
+        return jsonify({"error": str(ve)}), 400 #Bad request
+
+    # Catch all other exceptions
     except Exception as e:
-        return jsonify({"Error occured whilst processing request": {e}})    
-    
-    
+        return jsonify({"error": "An unexpected error occurred", "details": str(e)}), 500 #Internal Server Error
+
     
 
 @person_card.route('/upload', methods=['GET'])    
