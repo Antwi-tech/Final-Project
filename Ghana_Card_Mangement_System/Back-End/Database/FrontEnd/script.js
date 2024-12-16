@@ -131,33 +131,33 @@ form.addEventListener("submit", (e) => {
 */
 
 
-function searchCard(event){
+function searchCard(event) {
     event.preventDefault();
 
     var lastName = document.querySelector(".search_input").value;
 
-    fetch(`http://127.0.0.1:5001/upload/${lastName}`) .then(
-        response => response.json()
-    )  .then(data => {
+    fetch(`http://127.0.0.1:5001/search_card/${lastName}`)
+        .then(response => response.json())
+        .then(data => {
+            const displayResults = document.getElementById("results");
 
-        const displayResults = document.getElementById("results");
+            if (data.error) {
+                displayResults.innerHTML = `<p>${data.error}</p>`;
+            } else {
+                displayResults.innerHTML = `
+                    <h2>Card Found</h2>
+                    <p>First Name: ${data.card_found.first_name}</p>
+                    <p>Last Name: ${data.card_found.last_name}</p>
+                    <p>ID Number: ${data.card_found.id_number}</p>
+                    <p>Middle Name: ${data.card_found.middle_name}</p>
+                    <p>Sex: ${data.card_found.sex}</p>
+                    <p>Citizenship: ${data.card_found.citizenship}</p>
+                    <p>${data.message}</p>
+                `;
+            }
 
-        if (data.error){
-            displayResults.innerHTML = `<p>${data.error}</p>`;
-        }
-        else{
-            displayResults.innerHTML = `
-                   <h2>Card Found</h2>
-                   <p>First Name: ${data.first_name}</p>
-                   <p>Last Name: ${data.last_name}</p>
-                    <p>ID Number: ${data.id_number}</p>
-                    <p>Middle Name: ${data.middle_name}</p>
-                    <p>Sex: ${data.sex}</p>
-                    <p>Citizenship: ${data.citizenship}</p>
-                    <p>Message: Card found successfully. Visit our office for retrieval.</p>`;
-        }
-
-    }) .catch(error => {
-        document.getElementById("results").innerHTML = `<p> Error: ${error}</p>`
-    });
+        })
+        .catch(error => {
+            document.getElementById("results").innerHTML = `<p>Error: ${error}</p>`;
+        });
 }
