@@ -1,0 +1,18 @@
+[
+    {
+        "first_name": "Nana",
+        "last_name": "Anfua",
+        "other_names": "Antwiwaa",
+        "id_number": "GHA-1234567894",
+        "gender": "female",
+        "national": "citizen"
+    },
+    {
+        "first_name": "Maame ",
+        "last_name": "Aba",
+        "other_name": "Victoria",
+        "id_number": "GHA-2456897521",
+        "gender": "female",
+        "national": "non-citizen"
+    }
+]
