@@ -65,6 +65,7 @@ form.addEventListener("submit", (e) => {
 });
 */
 
+/*
 const form = document.getElementById("form");
 const popup = document.getElementById("popup");
 
@@ -127,3 +128,36 @@ form.addEventListener("submit", (e) => {
     e.preventDefault(); // Prevent the form from submitting the traditional way
     submitFormData();   // Trigger the AJAX submission
 });
+*/
+
+
+function searchCard(event){
+    event.preventDefault();
+
+    var lastName = document.querySelector(".search_input").value;
+
+    fetch(`http://127.0.0.1:5001/upload/${lastName}`) .then(
+        response => response.json()
+    )  .then(data => {
+
+        const displayResults = document.getElementById("results");
+
+        if (data.error){
+            displayResults.innerHTML = `<p>${data.error}</p>`;
+        }
+        else{
+            displayResults.innerHTML = `
+                   <h2>Card Found</h2>
+                   <p>First Name: ${data.first_name}</p>
+                   <p>Last Name: ${data.last_name}</p>
+                    <p>ID Number: ${data.id_number}</p>
+                    <p>Middle Name: ${data.middle_name}</p>
+                    <p>Sex: ${data.sex}</p>
+                    <p>Citizenship: ${data.citizenship}</p>
+                    <p>Message: Card found successfully. Visit our office for retrieval.</p>`;
+        }
+
+    }) .catch(error => {
+        document.getElementById("results").innerHTML = `<p> Error: ${error}</p>`
+    });
+}
