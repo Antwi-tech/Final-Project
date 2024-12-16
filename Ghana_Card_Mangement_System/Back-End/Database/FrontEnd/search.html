@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="images/card.png" type="image/png">
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=search" />
     <title>Document</title>
 </head>
@@ -19,11 +20,20 @@
         
     </nav>
 
-        <form action="http://127.0.0.1:5001/search_card" method="GET">
+        <!-- <form action="http://127.0.0.1:5001/search_card" method="GET">
             <div class="search">
                 <span class="search_icon material-symbols-outlined">search</span>
                 <input type="search" name="last_name" class="search_input" placeholder="search" >
             </div>
+        </form> -->
+
+        <form onsubmit="searchCard(event)">
+            <div class="search">
+                <span class="search_icon material-symbols-outlined">search</span>
+                <input type="search" id="last_name" name="last_name" class="search_input" placeholder="search" >
+            </div>
         </form>
+
+        <div id="results"></div>
 </body>
 </html>
