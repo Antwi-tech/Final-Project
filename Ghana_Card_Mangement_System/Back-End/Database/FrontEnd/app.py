@@ -61,8 +61,8 @@ def get_card():
         return jsonify(response.json()), response.status_code
     
     except Exception as e:
-        return jsonify({"error":f"{str(e)}"}), 500 
-    
+        return jsonify({"error":f"{str(e)}"}), 500
+
 if __name__ == '__main__':
     app.run(debug=True, port=5001)
-
+    
