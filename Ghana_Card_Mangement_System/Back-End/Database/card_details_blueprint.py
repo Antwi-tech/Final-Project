@@ -91,11 +91,11 @@ def get_laptop_by_last_name(last_name):
         return jsonify({
             "Card Found":{
                "first_name": credentails.first_name,
-                "last_name": credentails.last_name,
+               "last_name": credentails.last_name,
                "middle_name": credentails.middle_name,
-                "sex": credentails.sex,
-                "id_number": credentails.id_number,
-                "citizenship": credentails.citizenship
+               "sex": credentails.sex,
+               "id_number": credentails.id_number,
+               "citizenship": credentails.citizenship
             },
          
          "message":"Card found successfully!!.Visit our office for retrireval"   
