@@ -38,8 +38,25 @@ This project consists of :
 - A template template folder that renders after the form has been submitted
 
 ## How Api Works
+**server.py**
+This api acts as the intermediary between the backend and the database.It uses a blueprint to manage the database.It specifically runs on port 5000.This is specified because the flask applications are two and two different flask applications cannot run on one port.
 
-## Database Constriants
+
+![server.py](/ReadmeImages/server.png)
+
+
+**card_details_blueprint**
+This manipulates the crud operations in the models file to impletement GET, POST and DELETE routes to 
+retrieve and upload data on into the database.
+
+![card_details](/ReadmeImages/card_details.png)
+
+**app.py**
+This api primarily focuses on interaction between the frontend and the backend database and becasue of this in any route, there would be a backend flask api url that is used for interaction between the frontend and the backend. This api sends whatever request that is specified through a form filling to the backend database.
+
+![FrontendAPI](/ReadmeImages/frontendAPI.png)
+
+## Database 
 
 ## FrontEnd Implementation
 
