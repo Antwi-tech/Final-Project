@@ -1,4 +1,5 @@
 from flask import Blueprint, request, jsonify
+from sqlalchemy.exc import SQLAlchemyError
 from card import Card_details
 
 person_card = Blueprint('persons', __name__)
@@ -43,6 +44,7 @@ def record_card_details():
 
     except Exception as e:
         return jsonify({"Unexpected error": str(e)}), 500
+    
 
 # @person_card.route("/upload/search", methods=['PUT'])
 # def update_card():
@@ -145,7 +147,8 @@ def get_card():
         return jsonify({"All cards in the system": list_card_found})  
     
     except Exception as e:
-        return jsonify({"Unexpected Error":{e}})      
+        return jsonify({"Unexpected Error":{e}})  
+        
 
 @person_card.route("/upload/<string:id_number>" , methods=['DELETE'])
 def delete_found_card(id_number):
@@ -157,5 +160,12 @@ def delete_found_card(id_number):
         card.delete_card(id_number)
         return jsonify({"message":f"Card with id {id_number} has been deleted"})
     
+    except SQLAlchemyError as e:
+        # Handle database-related errors (e.g., constraint violations, connection issues)
+        print(f"Database error occurred: {e}")
+        return jsonify({"Error": "Database error occurred. Please try again later."}), 500
+
     except Exception as e:
-        return jsonify({"Error occured":{e}})
+        # Handle any other unexpected errors
+        print(f"Unexpected error occurred: {e}")
+        return jsonify({"Error": "An unexpected error occurred. Please try again later."}), 500
