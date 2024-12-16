@@ -11,14 +11,22 @@ def record_card_details():
     try:
         if not credentials:
             return jsonify({"Error": "Enter data to continue"}), 400
+        
+        sex = credentials.get('sex')
+        if sex not in ['male', 'female']:
+            return jsonify({"Error occured at sex input":"sex must be male or female"})
+
+        citizenship = credentials.get('sex')
+        if citizenship not in ['citizen', 'non-citizen']:
+            return jsonify({"Error occured at citizen staus input":"cititzenship must be citizen or non-citizen"})
 
         found_card = card.add_missing_card(
             first_name=credentials.get('first_name'),
             last_name=credentials.get('last_name'),
             middle_name=credentials.get('middle_name'),
-            sex=credentials.get('sex'),
+            sex=sex,
             id_number=credentials.get('id_number'),
-            citizenship=credentials.get('citizenship')  
+            citizenship=citizenship  
         )
         
 
@@ -78,6 +86,8 @@ def record_card_details():
 
 #     except Exception as e:
 #         return jsonify({"Error occurred": str(e)}), 500
+
+
 
 # Search for a card according to last name
 @person_card.route("/upload/<string:last_name>", methods=['GET'])
