@@ -37,3 +37,10 @@ This project consists of :
 - The frontend api that interacts with the backend api
 - A template template folder that renders after the form has been submitted
 
+## How Api Works
+
+## Database Constriants
+
+## Improvements
+
+![Ghana_Card](/ReadmeImages/image.png)
