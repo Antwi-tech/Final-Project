@@ -41,6 +41,10 @@ This project consists of :
 
 ## Database Constriants
 
+## FrontEnd Implementation
+
+## How To Use This repos
+
 ## Improvements
 
 ![Ghana_Card](/ReadmeImages/image.png)
