@@ -7,6 +7,7 @@ app = Flask(__name__)
 def home():
     return render_template("success.html")
 
+# Get the data from th front-end
 @app.route("/submit_details", methods=['POST'])
 def get_details_from_form():
     try:
@@ -45,6 +46,22 @@ def get_details_from_form():
     except Exception as e:
         return  jsonify({"An error occured":{e}})  
     
+    
+@app.route("/search_card", methods=['GET'])
+def get_card():
+    try:
+        last_name = request.args.get('last_name')
+        if not last_name:
+            return jsonify({"message":"Card Not Found"}), 404
+        
+        backend_url = f"http://127.0.0.1:5000/upload/{last_name}"
+        
+        response = requests.get(backend_url)
+        
+        return jsonify(response.json()), response.status_code
+    
+    except Exception as e:
+        return jsonify({"error":f"{str(e)}"}), 500 
     
 if __name__ == '__main__':
     app.run(debug=True, port=5001)
