@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="images/card.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <title>Upload Ghana Card Details</title>
+</head>
+<body>
+    <nav>
+        <p class="gc">Ghana Card Search and Details</p>
+        <div class="navbar">
+            <a href="search.html">Search</a>
+            <a href="form.html">Entry</a>
+        </div>
+        
+    </nav>
+    
+     <section>
+       
+        <div class="container">
+
+            <header>Upload Missing But Found Card </header>
+            <br><br>
+        <form action="http://127.0.0.1:5001/submit_details" class="form" method="POST">
+                <div class="input-section">
+                    <label for="" name="first_name">First name</label>
+                    <input type="text" class="input"  name="first_name" placeholder="Enter First Name" required>
+                </div>
+                <br>
+
+                <div class="input-section">
+                    <label for="" name="last_name">Last name</label>
+                    <input type="text" class="input" name="last_name" placeholder="Enter Last Name" required>
+                </div>
+                <br>
+
+                <div class="input-section">
+                    <label for="" name="middle_name">Other names</label>
+                    <input type="text" name="middle_name" class="input" placeholder="Enter Last Name" >
+                </div>
+                <br>
+
+                <div class="input-section">
+                    <label for="" name="id_number">ID Card Number</label>
+                    <input type="text" class="input" name="id_number" placeholder="Enter Last Name" value="GHA-" required>
+                </div>
+                <br>
+                
+                <div class="detail">
+                    <div class="input-section">
+                        <label for="" name="sex">Sex</label>
+                        <input  class="flex" type="text" class="input" name="sex" placeholder="male/female" required>
+                    </div>
+                    <br>
+    
+                    <div class="input-section">
+                        <label  for="" name="citizenship">Citizenship</label>
+                        <input class="flex" type="text" name="citizenship" class="input" placeholder="citizen/non-citizen" required>
+                    </div>
+                    <br>
+                </div>
+
+        <div class="button">
+            <button>Submit</button>
+        </div>
+                
+
+            </form>
+        </div>
+      
+
+
+</section>
+</body>
+</html>
