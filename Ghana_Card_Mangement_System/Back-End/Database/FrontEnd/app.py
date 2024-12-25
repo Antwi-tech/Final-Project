@@ -1,3 +1,4 @@
+# This API is specifically for the frontend interaction with the backend
 from flask import Flask, jsonify, request, render_template
 import requests
 

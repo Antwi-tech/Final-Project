@@ -9,7 +9,7 @@ Base = declarative_base()
 #     __tablename__ = "card" 
 #     id_number = Column(CHAR(14) , primary_key = True, nullable = False)
     
-class Person(Base):
+class Person(Base):  
     __tablename__ = "person"
     id = Column(Integer, primary_key = True, autoincrement=True)
     first_name = Column(String(250), nullable = False) 
