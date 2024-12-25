@@ -12,7 +12,7 @@
 <body>
 
     <nav>
-        <p class="gc">Ghana Card Search and Details</p>
+        <p class="gc"><a href="index.html">Ghana Card Search and Details</a></p>
         <div class="navbar">
             <a href="search.html">Search</a>
             <a href="form.html">Entry</a>
@@ -22,9 +22,40 @@
 
         <form action="http://127.0.0.1:5001/search_card" method="GET">
             <div class="search">
-                <span class="search_icon material-symbols-outlined">search</span>
-                <input type="search" name="last_name" class="search_input" placeholder="search" >
+                <span class=" material-symbols-outlined search_icon"></span>
+                <input type="search" name="search" class="search_input" placeholder="Search" >
             </div>
+
+             <div class="card_found" id="result">
+            <div>
+                <p>First Name:</p>
+                <input type="text" id="first_name" name="first_name">
+            </div>
+            <div>
+                <p>Last Name:</p>
+                <input type="text" id="last_name" name="last_name">
+            </div>
+            <div>
+                <p>Middle Name(s):</p>
+                <input type="text" id="middle_name" name="middle_name">
+            </div>
+            <div>
+                <p>ID number:</p>
+                <input type="text" id="id_number" name="id_number">
+            </div>
+            <div>
+                <p>Sex:</p>
+                <input type="text" id="sex" name="sex">
+            </div>
+            <div>
+                <p>Citizenship:</p>
+                <input type="text" id="citizenship" name="citizenship">
+            </div>
+
+           
+        </div>
+
+        <div class="card_found" id="results"> </div>
         </form>
         <!-- <form onsubmit="searchCard(event)">
             <div class="search">
@@ -33,7 +64,7 @@
             </div>
         </form> -->
         
-        <div id="results"></div>
+       
         
 </body>
 </html>
