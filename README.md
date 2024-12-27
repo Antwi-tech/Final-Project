@@ -91,6 +91,8 @@ python3 server.py
 ```
 
 
-## Improvements
+## Future Improvements
+- A more interactive forntend
+- User authentication for the search part of the system
 
 ![Ghana_Card](/ReadmeImages/ghcard.png)
