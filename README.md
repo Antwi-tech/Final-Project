@@ -57,6 +57,12 @@ This api primarily focuses on interaction between the frontend and the backend d
 ![FrontendAPI](/ReadmeImages/frontendAPI.png)
 
 ## Database 
+- My primary database is called Ghana_card that is creates using an sql script
+- The table "person" is used to store all the tuples and records. 
+- Tuple(column) this specifies the various fields in the tables. ie. The id which tracks the total number of cards recorded, the "first_name", "last_name" and "middle_name" that stores the name of the person, the "sex" of the person , "citizenship" which is the status of citizenship of the person and the "id_number" on the card.
+- Record(rows) which represents any data or card information that will be entered
+
+![database](/ReadmeImages/database.png)
 
 
 ## FrontEnd Implementation
@@ -65,4 +71,4 @@ This api primarily focuses on interaction between the frontend and the backend d
 
 ## Improvements
 
-![Ghana_Card](/ReadmeImages/image.png)
+![Ghana_Card](/ReadmeImages/ghcard.png)
