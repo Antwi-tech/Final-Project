@@ -73,7 +73,7 @@ This api primarily focuses on interaction between the frontend and the backend d
 - It consists of a flask app that is mainly the frontend api that interacts with the backend api
 - It consits of the images and templates too used for the frontend
 
-## How To Use This repos
+## How To Use This repository
 ```bash
 #clone the repo first
 git clone https://github.com/Antwi-tech/Final-Project.git
