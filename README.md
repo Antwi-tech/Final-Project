@@ -66,8 +66,15 @@ This api primarily focuses on interaction between the frontend and the backend d
 
 
 ## FrontEnd Implementation
+- All FrontEnd files are contained in a FrontEnd folder. 
+- The main pages; index, entry and search are created with html,css and js
+- The index page is the first page the user is exposed to 
+- Both the entry and searcah are both forms that uses a method(get/post) to interact with the backend
+- It consists of a flask app that is mainly the frontend api that interacts with the backend api
+- It consits of the images and templates too used for the frontend
 
 ## How To Use This repos
+
 
 ## Improvements
 
