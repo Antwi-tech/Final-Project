@@ -74,6 +74,21 @@ This api primarily focuses on interaction between the frontend and the backend d
 - It consits of the images and templates too used for the frontend
 
 ## How To Use This repos
+```bash
+#clone the repo first
+git clone https://github.com/Antwi-tech/Final-Project.git
+```
+``` sql
+-- execute the database script
+mysql -u root -p < database.sql
+
+-- create a .env file to specify your database username, password and the name of the database
+```
+```bash
+# make sure to start both the frontend and backend server when testing the frontend 
+python3 app.py 
+python3 server.py
+```
 
 
 ## Improvements
