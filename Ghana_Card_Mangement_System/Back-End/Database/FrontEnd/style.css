@@ -94,7 +94,7 @@ form .detail{
    
 }
 
-button {
+.submit{
     margin-top: 25px;
     padding: 10px 220px;
     background: #007bff;
@@ -104,8 +104,9 @@ button {
     font-size: 15px;
 }
 
-button:hover {
+.submit:hover {
     background: #0056b3;
+    
 }
 
 .search{
@@ -179,4 +180,27 @@ button:hover {
     border: none;
     border-radius: none;
     
+}
+
+.update_btn{
+    display: flex;
+    flex-direction: row;
+    justify-self: center;
+    align-self: center;
+    justify-content: center;
+    align-items: center;
+    
+
+
+}
+ 
+.edit{
+    width: 100px;
+    padding: 12px;
+    margin: 5px;
+    background: #007bff;
+    color: white;
+    outline: none;
+    border: none;
+    border-radius: 10px;
 }

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="images/card.png" type="image/png">
     <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
+    <!-- <script src="script.js" defer></script> -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=search" />
     <title>Document</title>
 </head>
@@ -23,48 +23,41 @@
         <form action="http://127.0.0.1:5001/search_card" method="GET">
             <div class="search">
                 <span class=" material-symbols-outlined search_icon"></span>
-                <input type="search" name="search" class="search_input" placeholder="Search" >
+                <input type="search" name="last_name" class="search_input" placeholder="Search" >
             </div>
-
+        </form>
              <div class="card_found" id="result">
             <div>
                 <p>First Name:</p>
-                <input type="text" id="first_name" name="first_name">
+                <input type="text" id="first_name" name="first_name" readonly>
             </div>
             <div>
                 <p>Last Name:</p>
-                <input type="text" id="last_name" name="last_name">
+                <input type="text" id="last_name" name="last_name" readonly>
             </div>
             <div>
                 <p>Middle Name(s):</p>
-                <input type="text" id="middle_name" name="middle_name">
+                <input type="text" id="middle_name" name="middle_name" readonly>
             </div>
             <div>
                 <p>ID number:</p>
-                <input type="text" id="id_number" name="id_number">
+                <input type="text" id="id_number" name="id_number" readonly>
             </div>
             <div>
                 <p>Sex:</p>
-                <input type="text" id="sex" name="sex">
+                <input type="text" id="sex" name="sex" readonly>
             </div>
             <div>
                 <p>Citizenship:</p>
-                <input type="text" id="citizenship" name="citizenship">
+                <input type="text" id="citizenship" name="citizenship" readonly>
             </div>
 
+            <div class="update_btn">
+                <a href="edit.html"> <button class="edit"> Edit </button></a>
+                <button class="edit">Delete</button>
+            </div>
            
         </div>
-
-        <div class="card_found" id="results"> </div>
-        </form>
-        <!-- <form onsubmit="searchCard(event)">
-            <div class="search">
-                <span class="search_icon material-symbols-outlined">Search</span>
-                <input type="search" id="last_name" name="last_name" class="search_input" placeholder="Search">
-            </div>
-        </form> -->
-        
-       
         
 </body>
 </html>
