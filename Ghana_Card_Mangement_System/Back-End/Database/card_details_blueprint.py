@@ -17,7 +17,7 @@ def record_card_details():
         if sex not in ['male', 'female']:
             return jsonify({"Error occured at sex input":"sex must be male or female"})
 
-        citizenship = credentials.get('sex')
+        citizenship = credentials.get('citizenship')
         if citizenship not in ['citizen', 'non-citizen']:
             return jsonify({"Error occured at citizen staus input":"cititzenship must be citizen or non-citizen"})
 
@@ -44,8 +44,56 @@ def record_card_details():
 
     except Exception as e:
         return jsonify({"Unexpected error": str(e)}), 500
-    
 
+
+# Update card
+@person_card.route("/update/<string:last_name>", methods=["PUT"])
+def update_card(last_name):
+    try:
+        update_detail = request.get_json()
+
+        edit_card = card.update_card_by_name(last_name)
+
+        if edit_card:
+            if 'first_name' in update_detail:
+                edit_card.first_name = update_detail['first_name']
+
+
+            if 'middle_name' in update_detail:
+                edit_card.middle_name = update_detail['middle_name']
+
+            if 'sex' in update_detail:
+                edit_card.sex = update_detail['sex']
+
+            if 'id_number' in update_detail:
+                edit_card.id_number = update_detail['id_number']
+
+            if 'citizenship' in update_detail:
+                edit_card.citizenship = update_detail['citizenship']
+
+            return jsonify({
+                "message": "Card updated successfully",
+                "Card": {
+                    "first_name": edit_card.first_name,
+                    "last_name": edit_card.last_name,
+                    "middle_name": edit_card.middle_name,
+                    "sex": edit_card.sex,
+                    "id_number": edit_card.id_number,
+                    "citizenship": edit_card.citizenship
+                }
+            }), 200
+
+        else:
+            return jsonify({'Error': 'Card does not exist.'}), 404
+
+    except Exception as e:
+        return jsonify({"Unexpected error": str(e)})
+
+            
+                  
+                
+                
+                      
 # @person_card.route("/upload/search", methods=['PUT'])
 # def update_card():
 #     try:
@@ -128,7 +176,7 @@ def get_laptop_by_last_name(last_name):
         return jsonify({"error": "An unexpected error occurred", "details": str(e)}), 500 #Internal Server Error
 
     
-
+#get all cards in teh system
 @person_card.route('/upload', methods=['GET'])    
 def get_card():
     cards_found=card.get_all_found_cards()
@@ -149,7 +197,7 @@ def get_card():
     except Exception as e:
         return jsonify({"Unexpected Error":{e}})  
         
-
+# delete a card by id number
 @person_card.route("/upload/<string:id_number>" , methods=['DELETE'])
 def delete_found_card(id_number):
     found_card = card.get_card_by_id(id_number)
