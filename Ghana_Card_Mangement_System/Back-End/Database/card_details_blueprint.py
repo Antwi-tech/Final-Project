@@ -5,6 +5,7 @@ from card import Card_details
 person_card = Blueprint('persons', __name__)
 card = Card_details()
 
+# Record a missing but found card
 @person_card.route("/upload", methods=['POST'])
 def record_card_details():
     credentials = request.get_json()
@@ -89,56 +90,7 @@ def update_card(last_name):
     except Exception as e:
         return jsonify({"Unexpected error": str(e)})
 
-            
-                  
-                
-                
-                      
-# @person_card.route("/upload/search", methods=['PUT'])
-# def update_card():
-#     try:
-#         # Get the query parameter for last_name
-#         last_name = request.args.get('q')  # 'q' is the query parameter name
-#         if not last_name:
-#             return jsonify({"message": "Query parameter 'q' (last_name) is required"}), 400
-
-#         # Find the card by last_name
-#         ghana_card = card.get_card_by_lastname(last_name)
-#         if ghana_card is None:
-#             return jsonify({"message": f'Card with last name {last_name} does not exist'}), 404
-
-#         # Get the updated data from the request body
-#         update_data = request.get_json()
-#         if not update_data:
-#             return jsonify({"message": "No update data provided"}), 400
-
-#         # Update the fields (example of updating first_name and citizenship)
-#         if 'first_name' in update_data:
-#             ghana_card.first_name = update_data['first_name']
-#         if 'citizenship' in update_data:
-#             ghana_card.citizenship = update_data['citizenship']
-
-#         # Commit the changes to the database
-#         card.session.commit()
-
-#         return jsonify({
-#             "message": f"Ghana Card with last name '{last_name}' has been updated.",
-#             "Person_card": {
-#                 "first_name": ghana_card.first_name,
-#                 "last_name": ghana_card.last_name,
-#                 "middle_name": ghana_card.middle_name,
-#                 "sex": ghana_card.sex,
-#                 "id_number": ghana_card.id_number,
-#                 "citizenship": ghana_card.citizenship
-#             }
-#         }), 200
-
-
-#     except Exception as e:
-#         return jsonify({"Error occurred": str(e)}), 500
-
-
-
+       
 # Search for a card according to last name
 @person_card.route("/upload/<string:last_name>", methods=['GET'])
 def get_laptop_by_last_name(last_name):
@@ -216,4 +168,53 @@ def delete_found_card(id_number):
     except Exception as e:
         # Handle any other unexpected errors
         print(f"Unexpected error occurred: {e}")
-        return jsonify({"Error": "An unexpected error occurred. Please try again later."}), 500
+        return jsonify({"Error": "An unexpected error occurred. Please try again later."}), 500            
+                  
+                
+                
+                      
+# @person_card.route("/upload/search", methods=['PUT'])
+# def update_card():
+#     try:
+#         # Get the query parameter for last_name
+#         last_name = request.args.get('q')  # 'q' is the query parameter name
+#         if not last_name:
+#             return jsonify({"message": "Query parameter 'q' (last_name) is required"}), 400
+
+#         # Find the card by last_name
+#         ghana_card = card.get_card_by_lastname(last_name)
+#         if ghana_card is None:
+#             return jsonify({"message": f'Card with last name {last_name} does not exist'}), 404
+
+#         # Get the updated data from the request body
+#         update_data = request.get_json()
+#         if not update_data:
+#             return jsonify({"message": "No update data provided"}), 400
+
+#         # Update the fields (example of updating first_name and citizenship)
+#         if 'first_name' in update_data:
+#             ghana_card.first_name = update_data['first_name']
+#         if 'citizenship' in update_data:
+#             ghana_card.citizenship = update_data['citizenship']
+
+#         # Commit the changes to the database
+#         card.session.commit()
+
+#         return jsonify({
+#             "message": f"Ghana Card with last name '{last_name}' has been updated.",
+#             "Person_card": {
+#                 "first_name": ghana_card.first_name,
+#                 "last_name": ghana_card.last_name,
+#                 "middle_name": ghana_card.middle_name,
+#                 "sex": ghana_card.sex,
+#                 "id_number": ghana_card.id_number,
+#                 "citizenship": ghana_card.citizenship
+#             }
+#         }), 200
+
+
+#     except Exception as e:
+#         return jsonify({"Error occurred": str(e)}), 500
+
+
+

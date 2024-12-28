@@ -11,7 +11,7 @@ def home():
 # Get the data from the front-end and send it to the backend
 @app.route("/submit_details", methods=['POST'])
 def get_details_from_form():
-    try:
+    try: 
         first_name = request.form.get('first_name')
         last_name = request.form.get('last_name')
         middle_name = request.form.get('middle_name')
