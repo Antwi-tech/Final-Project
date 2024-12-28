@@ -94,5 +94,6 @@ python3 server.py
 ## Future Improvements
 - A more interactive forntend
 - User authentication for the search part of the system
+- Use of ```bash marshmallow``` or ```bash pydantic ```  for input validation
 
 ![Ghana_Card](/ReadmeImages/ghcard.png)

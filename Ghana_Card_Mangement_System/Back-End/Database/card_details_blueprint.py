@@ -198,7 +198,7 @@ def get_card():
         return jsonify({"Unexpected Error":{e}})  
         
 # delete a card by id number
-@person_card.route("/upload/<string:id_number>" , methods=['DELETE'])
+@person_card.route("/delete/<string:id_number>" , methods=['DELETE'])
 def delete_found_card(id_number):
     found_card = card.get_card_by_id(id_number)
     try:
