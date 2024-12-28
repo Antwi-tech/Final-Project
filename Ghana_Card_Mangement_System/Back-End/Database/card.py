@@ -51,14 +51,20 @@ class Card_details:
     def get_card_by_id(self, id_number):
         return session.query(Person).filter_by(id_number=id_number).first() 
     
-#Update input from user. use of Update in CRUD
-    def update_card_by_name(self, last_name):
+#Update input from user. 
+    def update_card_by_name(self, last_name,first_name = None, middle_name=None,id_number=None, sex=None, citizenship=None):
         selected_card = self.session.query(Person).filter_by(last_name=last_name).first()
         if selected_card:
-            if last_name:
-                selected_card.last_name = last_name
-            # if first_name:
-            #     selected_card.first_name = first_name
+            if first_name:
+                selected_card.first_name = first_name    
+            if middle_name:
+              selected_card.middle_name = middle_name
+            if sex:
+                selected_card.sex = sex
+            if id_number:
+                selected_card.id_number = id_number  
+            if citizenship:
+                selected_card.citizenship = citizenship       
         session.commit()        
         return selected_card
         
