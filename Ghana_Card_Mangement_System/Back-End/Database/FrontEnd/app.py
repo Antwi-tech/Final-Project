@@ -48,21 +48,21 @@ def get_details_from_form():
         return  jsonify({"An error occured":{e}})  
     
     
-@app.route("/search_card", methods=['GET'])
-def get_card():
-    try:
-        last_name = request.args.get('last_name')
-        if not last_name:
-            return jsonify({"message":"Card Not Found"}), 404
+# @app.route("/search_card", methods=['GET'])
+# def get_card():
+#     try:
+#         last_name = request.args.get('last_name')
+#         if not last_name:
+#             return jsonify({"message":"Card Not Found"}), 404
         
-        backend_url = f"http://127.0.0.1:5000/upload/{last_name}"
+#         backend_url = f"http://127.0.0.1:5000/upload/{last_name}"
         
-        response = requests.get(backend_url)
-        
-        return jsonify(response.json()), response.status_code
+#         response = requests.get(backend_url)
+#         return jsonify(response.json()), response.status_code
+
     
-    except Exception as e:
-        return jsonify({"error":f"{str(e)}"}), 500  
+#     except Exception as e:
+#         return jsonify({"error":f"{str(e)}"}), 500  
     
 #Edit card detail
 @app.route("/edit_details", methods=['POST'])
@@ -107,6 +107,111 @@ def edit_card_detail():
         return jsonify({"An error occurred": str(e)})
 
     
+# from flask import Flask, request, render_template_string
+# import requests
+
+# app = Flask(__name__)
+
+# @app.route("/search_card", methods=['GET'])
+# def get_card():
+#     try:
+#         last_name = request.args.get('last_name')
+#         if not last_name:
+#             return """
+#             <html>
+#             <body>
+#                 <p>Card not found. Please provide a valid last name.</p>
+#             </body>
+#             </html>
+#             """
+
+#         # Call the backend API
+#         backend_url = f"http://127.0.0.1:5000/upload/{last_name}"
+#         response = requests.get(backend_url)
+
+#         # If no card is found
+#         if response.status_code != 200:
+#             return """
+#             <html>
+#             <body>
+#                 <p>Card not found.</p>
+#             </body>
+#             </html>
+#             """
+
+#         # Get card details
+#         card_data = response.json().get("Card Found", {})
+#         if not card_data:
+#             return """
+#             <html>
+#             <body>
+#                 <p>Card not found.</p>
+#             </body>
+#             </html>
+#             """
+
+#         # Inject data into the HTML
+#         html_response = f"""
+#         <!DOCTYPE html>
+#         <html lang="en">
+#         <head>
+#             <meta charset="UTF-8">
+#             <meta name="viewport" content="width=device-width, initial-scale=1.0">
+#             <link rel="icon" href="images/card.png" type="image/png">
+#             <link rel="stylesheet" href="style.css">
+#             <title>Card Search Results</title>
+#         </head>
+#         <body>
+#             <nav>
+#                 <p class="gc"><a href="index.html">Ghana Card Search and Details</a></p>
+#                 <div class="navbar">
+#                     <a href="search.html">Search</a>
+#                     <a href="form.html">Entry</a>
+#                 </div>
+#             </nav>
+#             <form action="/search_card" method="GET">
+#                 <div class="search">
+#                     <span class="material-symbols-outlined search_icon"></span>
+#                     <input type="search" name="last_name" class="search_input" placeholder="Search" value="{last_name}">
+#                 </div>
+#             </form>
+#             <div class="card_found" id="result">
+#                 <div>
+#                     <p>First Name:</p>
+#                     <input type="text" id="first_name" name="first_name" value="{card_data.get('first_name', '')}" readonly>
+#                 </div>
+#                 <div>
+#                     <p>Last Name:</p>
+#                     <input type="text" id="last_name" name="last_name" value="{card_data.get('last_name', '')}" readonly>
+#                 </div>
+#                 <div>
+#                     <p>Middle Name(s):</p>
+#                     <input type="text" id="middle_name" name="middle_name" value="{card_data.get('middle_name', '')}" readonly>
+#                 </div>
+#                 <div>
+#                     <p>ID Number:</p>
+#                     <input type="text" id="id_number" name="id_number" value="{card_data.get('id_number', '')}" readonly>
+#                 </div>
+#                 <div>
+#                     <p>Sex:</p>
+#                     <input type="text" id="sex" name="sex" value="{card_data.get('sex', '')}" readonly>
+#                 </div>
+#                 <div>
+#                     <p>Citizenship:</p>
+#                     <input type="text" id="citizenship" name="citizenship" value="{card_data.get('citizenship', '')}" readonly>
+#                 </div>
+#                 <div class="update_btn">
+#                     <a href="edit.html"> <button class="edit">Edit</button></a>
+#                     <button class="edit">Delete</button>
+#                 </div>
+#             </div>
+#         </body>
+#         </html>
+#         """
+#         return html_response
+
+#     except Exception as e:
+#         return f"<html><body><p>Error occurred: {str(e)}</p></body></html>", 500
     
 # @app.route("/search_card", methods=['GET'])
 # def get_card():
