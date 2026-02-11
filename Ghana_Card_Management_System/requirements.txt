@@ -68,7 +68,7 @@ pytz==2022.1
 PyYAML==5.4.1
 RapidFuzz==3.11.0
 reportlab==4.2.5
-requests==2.25.1
+requests==2.32.4
 SecretStorage==3.3.1
 service-identity==18.1.0
 simplejson==3.17.6
