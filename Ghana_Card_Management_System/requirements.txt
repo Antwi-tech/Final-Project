@@ -76,7 +76,7 @@ six==1.16.0
 SQLAlchemy==1.4.31
 systemd-python==234
 thefuzz==0.22.1
-Twisted==22.1.0
+Twisted==24.7.0rc1
 typing_extensions==4.12.2
 ubuntu-pro-client==8001
 ufw==0.36.1
