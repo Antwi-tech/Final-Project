@@ -55,7 +55,7 @@ PyHamcrest==2.0.2
 pyinotify==0.9.6
 pyinstaller==6.11.1
 pyinstaller-hooks-contrib==2024.11
-PyJWT==2.3.0
+PyJWT==2.4.0
 PyMuPDF==1.25.1
 pyOpenSSL==21.0.0
 pyparsing==2.4.7
