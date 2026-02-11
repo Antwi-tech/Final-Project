@@ -21,7 +21,7 @@ greenlet==1.1.2
 gyp==0.1
 httplib2==0.20.2
 hyperlink==21.0.0
-idna==3.3
+idna==3.7
 importlib-metadata==4.6.4
 incremental==21.3.0
 itsdangerous==2.1.0
